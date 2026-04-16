@@ -1,0 +1,78 @@
+version: 1 
+models: 
+  - name: dim_meetings
+    columns: 
+    - name: meeting_key
+      tests: [unique, not_null] 
+  - name: dim_sessions 
+    columns: 
+    - name: session_key 
+      tests: [unique, not_null] 
+    - name: meeting_key 
+      tests: [not_null]
+  - name: dim_drivers 
+    columns: 
+    - name: driver_number
+      tests: [not_null]
+    - name: session_key
+      tests: [not_null]
+  - name: ref_weather 
+    columns: 
+    - name: session_key
+      tests: [not_null]
+  - name: fact_session_result
+    columns:
+    - name: session_key
+      tests: [not_null]
+    - name: driver_number
+      tests: [not_null]
+  - name: fact_race_control
+    columns:
+    - name: session_key
+      tests: [not_null]
+  - name: fact_starting_grid
+    columns:
+    - name: session_key
+      tests: [not_null]
+    - name: driver_number
+      tests: [not_null]
+  - name: fact_laps
+    columns:
+    - name: session_key
+      tests: [not_null]
+    - name: driver_number
+      tests: [not_null]
+  - name: fact_pit
+    columns:
+    - name: session_key
+      tests: [not_null]
+    - name: driver_number
+      tests: [not_null]
+  - name: fact_stints
+    columns:
+    - name: session_key
+      tests: [not_null]
+    - name: driver_number
+      tests: [not_null]
+  - name: fact_position
+    columns:
+    - name: session_key
+      tests: [not_null]
+    - name: driver_number
+      tests: [not_null]
+  - name: fact_overtakes
+    columns:
+    - name: session_key
+      tests: [not_null]
+  - name: fact_intervals
+    columns:
+    - name: session_key
+      tests: [not_null]
+    - name: driver_number
+      tests: [not_null]
+  - name: telem_car_data
+    columns:
+    - name: session_key
+      tests: [not_null]
+    - name: driver_number
+      tests: [not_null]
