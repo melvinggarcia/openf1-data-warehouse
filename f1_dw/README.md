@@ -1,15 +1,120 @@
-Welcome to your new dbt project!
+# f1_dw
 
-### Using the starter project
+dbt Core project for transforming OpenF1 API race data into an analytics-ready Formula 1 data warehouse.
 
-Try running the following commands:
-- dbt run
-- dbt test
+---
 
+## Overview
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+This dbt project transforms raw OpenF1 race data stored in DuckDB into a structured star schema consisting of dimension and fact tables.
+
+The warehouse supports analytical workflows focused on:
+- race performance
+- pit strategy
+- tyre compound analysis
+- starting grid impact
+- race control events
+
+---
+
+## Technologies
+
+- dbt Core
+- DuckDB
+- SQL
+
+---
+
+## Project Structure
+
+```text
+f1_dw/
+│
+├── models/
+├── macros/
+├── seeds/
+├── snapshots/
+├── tests/
+│
+├── dbt_project.yml
+└── profiles.yml
+```
+
+---
+
+## Data Model
+
+### Dimension Tables
+- `dim_meetings`
+- `dim_sessions`
+- `dim_drivers`
+
+### Fact Tables
+- `fact_laps`
+- `fact_stints`
+- `fact_pit`
+- `fact_position`
+- `fact_race_control`
+- `fact_session_result`
+- `fact_starting_grid`
+- `fact_weather`
+- `fact_car_data`
+
+Primary relational keys:
+- `meeting_key`
+- `session_key`
+- `driver_number`
+
+---
+
+## Running the Project
+
+### Install dependencies
+
+```bash
+pip install dbt-duckdb
+```
+
+### Run models
+
+```bash
+dbt run
+```
+
+### Run tests
+
+```bash
+dbt test
+```
+
+### Generate documentation
+
+```bash
+dbt docs generate
+dbt docs serve
+```
+
+---
+
+## Data Cleaning / Transformation
+
+Transformations include:
+- datatype normalization
+- null filtering
+- relational key alignment
+- schema standardization
+- aggregation preparation for analytics
+
+---
+
+## Notes
+
+- Raw race data is sourced from the OpenF1 API
+- DuckDB is used as the analytical warehouse backend
+- Some large telemetry datasets were filtered or partitioned for performance optimization
+
+---
+
+## Author
+
+Melvin Garcia
