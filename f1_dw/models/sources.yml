@@ -1,0 +1,33 @@
+version: 1
+sources:
+  - name: raw
+    schema: main
+    tables:
+      - name: raw_meetings
+        description: "Information about meetings which is usually a Grand Prix or testing weekend."
+      - name: raw_sessions
+        description: "Information about sessions, a distinct period of track activity."
+      - name: raw_drivers
+        description: "Information about drivers, such as their team and country."
+      - name: raw_laps
+        description: "Information about laps."
+      - name: raw_stints
+        description: "Information about the time a driver spends continuously driving."
+      - name: raw_pit
+        description: "Pit lane information regarding lane duration and lap number."
+      - name: raw_position
+        description: "Placement changes through the race."
+      - name: raw_intervals
+        description: "Information regarding drivers and their interval between the leader."
+      - name: raw_overtakes
+        description: "Overtaking and overtaken racers information."
+      - name: raw_race_control
+        description: "Racing control/race information."
+      - name: raw_session_result
+        description: "Standings after the session."
+      - name: raw_starting_grid
+        description: "Information about the starting grid for the next race."
+      - name: raw_car_data
+        description: "Telemetry about each car at certain points in time."
+      - name: raw_weather
+        description: "Track weather information regarding rain, humidity, and temperature."
