@@ -112,9 +112,3 @@ Transformations include:
 - Raw race data is sourced from the OpenF1 API
 - DuckDB is used as the analytical warehouse backend
 - Some large telemetry datasets were filtered or partitioned for performance optimization
-
----
-
-## Author
-
-Melvin Garcia
